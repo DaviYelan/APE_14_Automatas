@@ -1,0 +1,15 @@
+# Variables de entorno reales (nunca versionar)
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Docker
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.2</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>com.nlpmath</groupId>
+  <artifactId>semantic-analyzer</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>NLP-Math Semantic Analyzer</name>
+  <description>
+    Servicio de Análisis Semántico para el DSL de Ecuaciones de Primer Grado.
+    Implementado en Java / Spring Boot como microservicio independiente.
+    Recibe el AST del parser Python, ejecuta las verificaciones semánticas
+    (tabla de símbolos, consistencia de variables, coeficientes) y consulta
+    Ollama SOLO para generar mensajes de error enriquecidos en lenguaje natural.
+  </description>
+
+  <properties>
+    <java.version>21</java.version>
+  </properties>
+
+  <dependencies>
+    <!-- Spring Web: expone el endpoint REST /semantic/analyze -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Lombok: elimina boilerplate (getters/setters/builders) -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <optional>true</optional>
+    </dependency>
+
+    <!-- Jackson ya viene incluido por spring-boot-starter-web -->
+
+    <!-- Tests (no usados en esta práctica, pero requeridos por Spring) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+            </exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

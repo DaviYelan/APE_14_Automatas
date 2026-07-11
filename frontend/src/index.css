@@ -1,0 +1,36 @@
+/* index.css — Estilos globales
+   Dirección visual: panel de diagnóstico de compilador.
+   Tipografía monoespaciada para datos, verde fósforo como acento. */
+
+:root {
+  --bg-base:       #0b0e0c;
+  --bg-panel:      #111512;
+  --bg-panel-alt:  #161b17;
+  --linea:         #243029;
+  --texto:         #d7e4da;
+  --texto-muted:   #7e9488;
+  --acento:        #5ce39a;
+  --acento-bg:     rgba(92, 227, 154, 0.12);
+  --llm:           #e3c45c;
+  --llm-bg:        rgba(227, 196, 92, 0.12);
+  --error:         #e35c5c;
+  --mono: "JetBrains Mono", "Fira Code", ui-monospace, Menlo, Consolas, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  background: var(--bg-base);
+  background-image:
+    radial-gradient(circle at 15% 0%,  rgba(92,227,154,0.05), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(227,196,92,0.04), transparent 45%);
+  color: var(--texto);
+  font-family: var(--sans);
+  line-height: 1.5;
+  min-height: 100vh;
+}
